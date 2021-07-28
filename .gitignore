@@ -121,6 +121,7 @@ wazimap-ng.sublime-workspace
 wazimap-ng/
 *.gz
 media/
-
+wazimap_ng/elections/csv_data_2016/input_files/*csv
+wazimap_ng/elections/csv_data_2016/output_files/*csv
 Dockerfile
 .idea
