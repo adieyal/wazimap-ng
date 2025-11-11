@@ -157,6 +157,9 @@ urlpatterns = [
     path("api/v1/tasks/<str:task_id>/", task_status, name="task_status"),
     path('sentry-debug/', trigger_error),
 
+    # New comprehensive REST API v2
+    path("api/v2/", include("wazimap_ng.datasets.api.v1.urls")),
+
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 if settings.DEBUG:

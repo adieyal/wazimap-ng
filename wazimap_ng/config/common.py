@@ -12,12 +12,13 @@ import sentry_sdk
 
 from wazimap_ng.utils import truthy, int_or_none
 from .qcluster import QCluster
+from .celery_config import CeleryConfig
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 os.environ["GDAL_DATA"] = "/usr/share/gdal/"
 
-class Common(QCluster, Configuration):
+class Common(QCluster, CeleryConfig, Configuration):
 
     SERVER_INSTANCE = os.environ.get("SERVER_INSTANCE", "Dev")
     RELEASE = f"{SERVER_INSTANCE}"
@@ -60,6 +61,8 @@ class Common(QCluster, Configuration):
 
         "debug_toolbar",
         "django_q",
+        "django_celery_beat",
+        "django_celery_results",
         "adminsortable2",
         "storages",
         "import_export",
